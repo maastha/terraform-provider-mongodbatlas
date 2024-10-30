@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
       - name: Update files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN || secrets.GITHUB_TOKEN }}
         run:  make update-tf-compatibility-matrix
       - name: Verify Changed files
         uses: tj-actions/verify-changed-files@54483a2138ca67989bc40785aa22faee8b085894
@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
       - name: Update files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN || secrets.GITHUB_TOKEN }}
         run:  make update-tf-version-in-repository
       - name: Verify Changed files
         uses: tj-actions/verify-changed-files@54483a2138ca67989bc40785aa22faee8b085894
