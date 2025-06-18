@@ -109,7 +109,7 @@ jobs:
           gpg_passphrase: ${{ secrets.PASSPHRASE }}
 
   run-qa-acceptance-tests:
-    needs: [ release-config, validate-inputs, update-examples-reference-in-docs, update-changelog-header, create-tag ]
+    needs: [ release-config, create-tag ]
     if: >-
       !cancelled()
       && !contains(needs.*.result, 'failure')
